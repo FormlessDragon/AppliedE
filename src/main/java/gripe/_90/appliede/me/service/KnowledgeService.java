@@ -23,7 +23,7 @@ import ae2.api.stacks.AEItemKey;
 import ae2.api.storage.IStorageProvider;
 import ae2.api.storage.MEStorage;
 import ae2.me.storage.NullInventory;
-import gripe._90.appliede.AppliedEConfig;
+import gripe._90.appliede.common.AppliedEConfig;
 import gripe._90.appliede.part.EMCModulePart;
 import moze_intel.projecte.api.ProjectEAPI;
 import moze_intel.projecte.api.capabilities.IKnowledgeProvider;

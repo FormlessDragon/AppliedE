@@ -23,7 +23,7 @@ import ae2.api.upgrades.UpgradeInventories;
 import ae2.me.storage.DelegatingMEInventory;
 import ae2.util.ConfigInventory;
 import ae2.util.Platform;
-import gripe._90.appliede.AppliedEItems;
+import gripe._90.appliede.common.AppliedEItems;
 import gripe._90.appliede.me.service.EMCStorage;
 import gripe._90.appliede.me.service.KnowledgeService;
 import moze_intel.projecte.api.ProjectEAPI;

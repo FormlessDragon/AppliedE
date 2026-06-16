@@ -1,5 +1,6 @@
-package gripe._90.appliede;
+package gripe._90.appliede.common;
 
+import gripe._90.appliede.AppliedE;
 import gripe._90.appliede.block.EMCInterfaceBlockEntity;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

@@ -1,7 +1,8 @@
-package gripe._90.appliede;
+package gripe._90.appliede.common;
 
 import ae2.api.AECapabilities;
 import ae2.api.parts.RegisterPartCapabilitiesEvent;
+import gripe._90.appliede.AppliedE;
 import gripe._90.appliede.part.EMCInterfacePart;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

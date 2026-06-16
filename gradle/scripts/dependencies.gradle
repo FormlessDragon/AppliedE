@@ -28,7 +28,10 @@ dependencies {
         compileOnly "com.cleanroommc:lwjglx:1.0.0"
     }
 
-    modImplementation name: "AppliedEnergistics2-Supergiant", version: "0.0.0+e460fb095", classifier: "dev"
+    compileOnly("io.github.formlessdragon:AppliedEnergistics2-Supergiant:${ae2_version}:dev")
+    modRuntimeOnly("io.github.formlessdragon:AppliedEnergistics2-Supergiant:${ae2_version}:dev") {
+        transitive = false
+    }
 
     modImplementation "curse.maven:projecte-226410:2702991"
 

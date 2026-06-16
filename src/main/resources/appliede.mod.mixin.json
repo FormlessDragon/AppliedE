@@ -2,6 +2,7 @@
   "required": true,
   "package": "gripe._90.appliede.mixin",
   "compatibilityLevel": "JAVA_25",
+  "plugin": "gripe._90.appliede.mixin.AppliedELoadingPlugin",
   "target": "@env(MOD)",
   "mixins": [
     "crafting.CraftConfirmMenuMixin",

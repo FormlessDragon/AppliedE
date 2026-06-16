@@ -11,7 +11,7 @@ import ae2.api.stacks.AEItemKey;
 import ae2.api.stacks.AEKey;
 import ae2.api.stacks.GenericStack;
 import gripe._90.appliede.AppliedE;
-import gripe._90.appliede.AppliedEItems;
+import gripe._90.appliede.common.AppliedEItems;
 import gripe._90.appliede.me.key.EMCKey;
 import moze_intel.projecte.api.ProjectEAPI;
 import net.minecraft.nbt.NBTTagCompound;

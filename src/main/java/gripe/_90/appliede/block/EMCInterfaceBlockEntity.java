@@ -9,7 +9,7 @@ import ae2.api.networking.IGridNodeListener;
 import ae2.api.networking.IManagedGridNode;
 import ae2.api.util.AECableType;
 import ae2.tile.grid.AENetworkedTile;
-import gripe._90.appliede.AppliedEItems;
+import gripe._90.appliede.common.AppliedEItems;
 import gripe._90.appliede.me.misc.EMCInterfaceLogic;
 import gripe._90.appliede.me.misc.EMCInterfaceLogicHost;
 import net.minecraft.item.ItemStack;

@@ -27,7 +27,12 @@ public class ModuleDataProvider implements BodyProvider<EMCModulePart>, ServerDa
         var uuid = node.getOwningPlayerProfileId();
 
         if (uuid != null) {
-            var profileCache = node.getLevel().getMinecraftServer().getPlayerProfileCache();
+            var server = node.getLevel().getMinecraftServer();
+            if (server == null) {
+                return;
+            }
+
+            var profileCache = server.getPlayerProfileCache();
 
             if (profileCache != null) {
                 var profile = profileCache.getProfileByUUID(uuid);

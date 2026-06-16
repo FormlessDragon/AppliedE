@@ -1,4 +1,4 @@
-package gripe._90.appliede;
+package gripe._90.appliede.common;
 
 import gripe._90.appliede.me.service.KnowledgeService;
 import moze_intel.projecte.api.event.EMCRemapEvent;

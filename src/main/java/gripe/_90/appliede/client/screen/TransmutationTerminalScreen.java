@@ -7,7 +7,7 @@ import ae2.client.gui.me.common.GuiMEStorage;
 import ae2.client.gui.style.GuiStyle;
 import ae2.client.gui.widgets.IconButton;
 import ae2.client.gui.widgets.ToggleButton;
-import gripe._90.appliede.AppliedENetwork;
+import gripe._90.appliede.common.AppliedENetwork;
 import gripe._90.appliede.me.misc.LearnAllItemsPacket;
 import gripe._90.appliede.menu.TransmutationTerminalMenu;
 import net.minecraft.entity.player.InventoryPlayer;

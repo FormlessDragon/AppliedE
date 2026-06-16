@@ -27,7 +27,7 @@ import ae2.parts.PartModel;
 import ae2.parts.automation.IOBusPart;
 
 import gripe._90.appliede.AppliedE;
-import gripe._90.appliede.AppliedEItems;
+import gripe._90.appliede.common.AppliedEItems;
 import gripe._90.appliede.me.key.EMCKey;
 import gripe._90.appliede.me.key.EMCKeyType;
 import gripe._90.appliede.me.service.KnowledgeService;

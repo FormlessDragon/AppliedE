@@ -1,4 +1,4 @@
-package gripe._90.appliede;
+package gripe._90.appliede.common;
 
 import java.util.function.Function;
 import java.util.function.IntSupplier;
@@ -10,6 +10,7 @@ import ae2.core.AEConfig;
 import ae2.api.upgrades.Upgrades;
 import ae2.items.parts.PartItem;
 import ae2.items.parts.PartModelsHelper;
+import gripe._90.appliede.AppliedE;
 import gripe._90.appliede.item.WirelessTransmutationTerminalItem;
 import gripe._90.appliede.part.EMCExportBusPart;
 import gripe._90.appliede.part.EMCImportBusPart;
@@ -19,9 +20,18 @@ import gripe._90.appliede.part.TransmutationTerminalPart;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public final class AppliedEItems {
+
+    public static final CreativeTabs TABS = new CreativeTabs(AppliedE.MODID) {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(DUMMY_EMC_ITEM);
+        }
+    };
+
     public static final Item EMC_MODULE = item("emc_module", part(EMCModulePart.class, EMCModulePart::new));
     public static final ItemBlock EMC_INTERFACE = blockItem("emc_interface", new ItemBlock(AppliedEBlocks.EMC_INTERFACE));
     public static final Item CABLE_EMC_INTERFACE =
@@ -51,17 +61,18 @@ public final class AppliedEItems {
         registry.register(WIRELESS_TRANSMUTATION_TERMINAL);
     }
 
+    @SuppressWarnings("SameParameterValue")
     private static ItemBlock blockItem(String id, ItemBlock item) {
         item.setRegistryName(AppliedE.id(id));
         item.setTranslationKey(AppliedE.MODID + "." + id);
-        item.setCreativeTab(CreativeTabs.MISC);
+        item.setCreativeTab(TABS);
         return item;
     }
 
     private static <T extends Item> T item(String id, T item) {
         item.setRegistryName(AppliedE.id(id));
         item.setTranslationKey(AppliedE.MODID + "." + id);
-        item.setCreativeTab(CreativeTabs.MISC);
+        item.setCreativeTab(TABS);
         return item;
     }
 
@@ -74,6 +85,7 @@ public final class AppliedEItems {
         return getConfiguredBattery(AEConfig.instance()::getWirelessTerminalBattery, 1600000);
     }
 
+    @SuppressWarnings("SameParameterValue")
     private static double getConfiguredBattery(IntSupplier supplier, double fallback) {
         try {
             return supplier.getAsInt();

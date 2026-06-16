@@ -24,7 +24,7 @@ import ae2.parts.AEBasePart;
 import ae2.parts.PartModel;
 
 import gripe._90.appliede.AppliedE;
-import gripe._90.appliede.AppliedEItems;
+import gripe._90.appliede.common.AppliedEItems;
 import gripe._90.appliede.gui.AppliedEGuiIds;
 import gripe._90.appliede.gui.AppliedEGuiOpener;
 import gripe._90.appliede.me.misc.EMCInterfaceLogic;

@@ -1,4 +1,4 @@
-package gripe._90.appliede;
+package gripe._90.appliede.common;
 
 import java.io.File;
 

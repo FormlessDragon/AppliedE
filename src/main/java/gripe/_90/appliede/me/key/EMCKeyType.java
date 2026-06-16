@@ -3,7 +3,7 @@ package gripe._90.appliede.me.key;
 import ae2.api.stacks.AEKey;
 import ae2.api.stacks.AEKeyType;
 import gripe._90.appliede.AppliedE;
-import gripe._90.appliede.AppliedEConfig;
+import gripe._90.appliede.common.AppliedEConfig;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.text.ITextComponent;

@@ -1,4 +1,4 @@
-package gripe._90.appliede;
+package gripe._90.appliede.common;
 
 import ae2.api.upgrades.Upgrades;
 import ae2.core.definitions.AEItems;

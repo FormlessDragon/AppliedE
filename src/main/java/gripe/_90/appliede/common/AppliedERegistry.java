@@ -1,5 +1,6 @@
-package gripe._90.appliede;
+package gripe._90.appliede.common;
 
+import gripe._90.appliede.AppliedE;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

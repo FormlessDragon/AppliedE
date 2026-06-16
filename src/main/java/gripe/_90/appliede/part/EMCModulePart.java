@@ -37,8 +37,8 @@ import ae2.parts.AEBasePart;
 import ae2.parts.PartModel;
 
 import gripe._90.appliede.AppliedE;
-import gripe._90.appliede.AppliedEConfig;
-import gripe._90.appliede.AppliedEItems;
+import gripe._90.appliede.common.AppliedEConfig;
+import gripe._90.appliede.common.AppliedEItems;
 import gripe._90.appliede.me.service.KnowledgeService;
 import gripe._90.appliede.me.service.TransmutationPattern;
 
