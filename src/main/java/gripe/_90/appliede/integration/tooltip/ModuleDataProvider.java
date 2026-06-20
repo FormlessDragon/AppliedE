@@ -13,7 +13,6 @@ import ae2.api.integrations.igtooltip.providers.ServerDataProvider;
 import gripe._90.appliede.AppliedE;
 import gripe._90.appliede.part.EMCModulePart;
 
-@SuppressWarnings({"UnstableApiUsage", "NonExtendableApiUsage"})
 public class ModuleDataProvider implements BodyProvider<EMCModulePart>, ServerDataProvider<EMCModulePart> {
     private static final String OWNER_LABEL = "tooltip." + AppliedE.MODID + ".owner_label";
 

@@ -71,7 +71,7 @@ unimined.minecraft {
         }
         loader "0.5.12-alpha"
         runs.all {
-            systemProperty("crl.dev.mixin", "${mod_id}.default.mixin.json,${mod_id}.mod.mixin.json")
+            systemProperty("crl.dev.mixin", "${mod_id}.mod.mixin.json")
             args += ['--username', minecraft_username]
             def extraArgs = propertyString('extra_jvm_args')
             if (extraArgs != null && !extraArgs.trim().isEmpty()) {
@@ -117,31 +117,57 @@ dependencies {
 
 apply from: 'gradle/scripts/dependencies.gradle'
 
+def generatedTagsSourceDir = layout.buildDirectory.dir('generated/sources/tags/java')
+def generateTagsSource = tasks.register('generateTagsSource') {
+    def outputFile = generatedTagsSourceDir.map { it.file("${propertyString('root_package').replace('.', '/')}/Tags.java") }
+
+    inputs.property('mod_id', propertyString('mod_id'))
+    inputs.property('mod_name', propertyString('mod_name'))
+    inputs.property('mod_version', propertyString('mod_version'))
+    outputs.file(outputFile)
+
+    doLast {
+        def file = outputFile.get().asFile
+        file.parentFile.mkdirs()
+        file.text = """package ${propertyString('root_package')};
+
+public final class Tags {
+
+    public static final String MOD_ID = "${propertyString('mod_id')}";
+    public static final String MOD_NAME = "${propertyString('mod_name')}";
+    public static final String VERSION = "${propertyString('mod_version')}";
+
+    private Tags() {
+    }
+}
+"""
+    }
+}
+
 processResources {
     rename '(.+_at.cfg)', 'META-INF/$1'
+    def resourceProps = [
+        mod_id               : propertyString('mod_id'),
+        mod_name             : propertyString('mod_name'),
+        mod_version          : propertyString('mod_version'),
+        mod_description      : propertyString('mod_description'),
+        mod_authors          : propertyStringList('mod_authors', ',').collect { it.strip() }.join('", "'),
+        mod_credits          : propertyString('mod_credits'),
+        mod_url              : propertyString('mod_url'),
+        mod_update_json      : propertyString('mod_update_json'),
+        mod_logo_path        : propertyString('mod_logo_path')
+    ]
+    inputs.properties(resourceProps)
+    filesMatching(['mcmod.info', 'pack.mcmeta']) {
+        expand(resourceProps)
+    }
     includeEmptyDirs = false
 }
 
 sourceSets {
     main {
-        blossom {
-            javaSources {
-                property('mod_id', propertyString('mod_id'))
-                property('mod_name', propertyString('mod_name'))
-                property('mod_version', propertyString('mod_version'))
-                property('package', "${root_package}")
-            }
-            resources {
-                property('mod_id', propertyString('mod_id'))
-                property('mod_name', propertyString('mod_name'))
-                property('mod_version', propertyString('mod_version'))
-                property('mod_description', propertyString('mod_description'))
-                property('mod_authors', propertyStringList('mod_authors', ',').collect {it.strip()}.join('", "'))
-                property('mod_credits', propertyString('mod_credits'))
-                property('mod_url', propertyString('mod_url'))
-                property('mod_update_json', propertyString('mod_update_json'))
-                property('mod_logo_path', propertyString('mod_logo_path'))
-            }
+        java {
+            srcDir generatedTagsSourceDir
         }
     }
 }
@@ -180,7 +206,12 @@ if (!propertyBool('enable_shadow')) {
 }
 
 compileJava {
+    dependsOn(generateTagsSource)
     sourceCompatibility = targetCompatibility = JavaVersion.VERSION_25
+}
+
+tasks.named('sourcesJar').configure {
+    dependsOn(generateTagsSource)
 }
 
 jar {
@@ -196,7 +227,7 @@ jar {
         manifest {
             def attribute_map = [:]
             attribute_map['ModType'] = "CRL"
-            attribute_map['MixinConfigs'] = "${mod_id}.default.mixin.json,${mod_id}.mod.mixin.json"
+            attribute_map['MixinConfigs'] = "${mod_id}.mod.mixin.json"
             if (configurations.contain.size() > 0) {
                 attribute_map['ContainedDeps'] = configurations.contain.collect { it.name }.join(' ')
                 attribute_map['NonModDeps'] = true

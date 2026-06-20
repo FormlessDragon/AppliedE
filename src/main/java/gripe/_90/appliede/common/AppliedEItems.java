@@ -32,18 +32,23 @@ public final class AppliedEItems {
         }
     };
 
-    public static final Item EMC_MODULE = item("emc_module", part(EMCModulePart.class, EMCModulePart::new));
-    public static final ItemBlock EMC_INTERFACE = blockItem("emc_interface", new ItemBlock(AppliedEBlocks.EMC_INTERFACE));
-    public static final Item CABLE_EMC_INTERFACE =
-        item("cable_emc_interface", part(EMCInterfacePart.class, EMCInterfacePart::new));
-    public static final Item EMC_EXPORT_BUS = item("emc_export_bus", part(EMCExportBusPart.class, EMCExportBusPart::new));
-    public static final Item EMC_IMPORT_BUS = item("emc_import_bus", part(EMCImportBusPart.class, EMCImportBusPart::new));
-    public static final Item TRANSMUTATION_TERMINAL =
-        item("transmutation_terminal", part(TransmutationTerminalPart.class, TransmutationTerminalPart::new));
-    public static final Item LEARNING_CARD = item("learning_card", Upgrades.createUpgradeCardItem());
-    public static final Item DUMMY_EMC_ITEM = item("dummy_emc_item", new Item());
-    public static final WirelessTransmutationTerminalItem WIRELESS_TRANSMUTATION_TERMINAL =
-        item("wireless_transmutation_terminal",
+    public static final Item DUMMY_EMC_ITEM = item("dummy_emc_item",
+            new Item());
+    public static final Item EMC_MODULE = item("emc_module",
+            part(EMCModulePart.class, EMCModulePart::new));
+    public static final ItemBlock EMC_INTERFACE = blockItem("emc_interface",
+            new ItemBlock(AppliedEBlocks.EMC_INTERFACE));
+    public static final Item CABLE_EMC_INTERFACE = item("cable_emc_interface",
+            part(EMCInterfacePart.class, EMCInterfacePart::new));
+    public static final Item EMC_EXPORT_BUS = item("emc_export_bus",
+            part(EMCExportBusPart.class, EMCExportBusPart::new));
+    public static final Item EMC_IMPORT_BUS = item("emc_import_bus",
+            part(EMCImportBusPart.class, EMCImportBusPart::new));
+    public static final Item TRANSMUTATION_TERMINAL = item("transmutation_terminal",
+            part(TransmutationTerminalPart.class, TransmutationTerminalPart::new));
+    public static final Item LEARNING_CARD = item("learning_card",
+            Upgrades.createUpgradeCardItem());
+    public static final WirelessTransmutationTerminalItem WIRELESS_TRANSMUTATION_TERMINAL = item("wireless_transmutation_terminal",
             new WirelessTransmutationTerminalItem(getWirelessTerminalBattery()));
 
     private AppliedEItems() {

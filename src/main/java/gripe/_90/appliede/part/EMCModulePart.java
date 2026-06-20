@@ -1,7 +1,11 @@
 package gripe._90.appliede.part;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import ae2.api.implementations.blockentities.PatternContainerGroup;
+import ae2.api.stacks.AEItemKey;
+import ae2.text.TextComponentItemStack;
 import it.unimi.dsi.fastutil.objects.Object2LongMap;
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
 
@@ -41,6 +45,7 @@ import gripe._90.appliede.common.AppliedEConfig;
 import gripe._90.appliede.common.AppliedEItems;
 import gripe._90.appliede.me.service.KnowledgeService;
 import gripe._90.appliede.me.service.TransmutationPattern;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public final class EMCModulePart extends AEBasePart
         implements IStorageProvider, ICraftingProvider, IPriorityHost, IGridTickable {
@@ -193,5 +198,14 @@ public final class EMCModulePart extends AEBasePart
     @Override
     public ItemStack getMainContainerIcon() {
         return new ItemStack(AppliedEItems.EMC_MODULE);
+    }
+
+    @Override
+    public PatternContainerGroup getTerminalGroup() {
+        return new PatternContainerGroup(
+            AEItemKey.of(AppliedEItems.EMC_MODULE),
+            new TextComponentTranslation(AppliedEItems.EMC_MODULE.getTranslationKey() + ".name"),
+            List.of()
+        );
     }
 }
